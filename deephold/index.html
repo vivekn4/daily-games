@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>DEEPHOLD — the trench is rising. Hold the rig.</title>
+<meta name="description" content="DEEPHOLD: a deep-sea tower-defense strategy game. Hold Meridian Trench Rig through 30 adaptive waves. Free HTML5 game by VN.">
+<style>
+  :root { --ink: #d8ecff; --dim: #8fa3d4; --gold: #ffd75e; --cyan: #39e6ff; --bg: #020810; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; background: #01050c; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); }
+  #wrap { position: relative; width: min(96vw, 960px, 144vh); aspect-ratio: 3/2; }
+  canvas#game { width: 100%; height: 100%; display: block; border-radius: 10px; background: var(--bg); box-shadow: 0 0 70px rgba(57,230,255,0.10); }
+  #ui { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; pointer-events: none; z-index: 6; }
+  #ui .panel, #ui .dlg { pointer-events: auto; background: rgba(5,12,22,0.95); border: 1px solid #2b4a66; border-radius: 14px; padding: 26px 32px; max-width: 640px; width: 93%; text-align: center; box-shadow: 0 12px 50px rgba(0,0,0,0.7); }
+  #ui h1 { font-family: Georgia, serif; font-size: 46px; letter-spacing: 10px; color: var(--cyan); margin-bottom: 10px; text-shadow: 0 0 24px rgba(57,230,255,0.5); }
+  #ui h2 { font-family: Georgia, serif; font-size: 25px; color: var(--cyan); margin-bottom: 12px; }
+  #ui .tag { color: var(--dim); font-size: 15px; line-height: 1.65; margin-bottom: 14px; }
+  #ui .tag b, #ui .ctl b { color: var(--ink); }
+  #ui .ctl { color: #6b7d9e; font-size: 13px; line-height: 1.8; margin-bottom: 16px; }
+  #ui .seed { color: #4a5a7d; font-size: 12px; margin-top: 12px; }
+  #ui .stats { color: var(--dim); font-size: 15px; line-height: 2; margin: 12px 0 18px; }
+  #ui .stats b { color: var(--gold); }
+  #ui .hint { color: #4a5a7d; font-size: 12px; margin-top: 12px; text-align: center; }
+  #ui .cards { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+  #ui .card { pointer-events: auto; background: #0b1626; border: 1px solid #2b4a66; border-radius: 10px; color: var(--ink); padding: 14px 16px; width: 180px; cursor: pointer; text-align: left; font-size: 14px; }
+  #ui .card b { display: block; color: var(--gold); margin-bottom: 6px; font-size: 15px; }
+  #ui .card span { color: var(--dim); font-size: 13px; }
+  #ui .card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+  button { font-family: inherit; }
+  button.big { background: #0e5a7a; color: #fff; border: none; border-radius: 10px; padding: 14px 30px; font-size: 17px; font-weight: bold; cursor: pointer; margin: 4px; }
+  button.big:hover { background: #1493c4; }
+  #ui button:not(.big):not(.card) { background: transparent; color: var(--dim); border: 1px solid #2b4a66; border-radius: 8px; padding: 10px 18px; font-size: 14px; cursor: pointer; margin: 4px; }
+  #ui button:not(.big):not(.card):hover { color: var(--ink); border-color: var(--cyan); }
+  #dlg { position: absolute; left: 4%; right: 4%; bottom: 3%; display: none; z-index: 7; pointer-events: auto;
+         background: rgba(4,10,20,0.94); border: 1px solid #2b4a66; border-radius: 12px; padding: 16px 20px; cursor: pointer; }
+  #dlg .who { color: var(--cyan); font-weight: bold; font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+  #dlg .drow { display: flex; gap: 14px; align-items: flex-start; }
+  #dlg .port { width: 60px; height: 60px; border-radius: 8px; border: 1px solid #2b4a66; image-rendering: pixelated; flex-shrink: 0; }
+  #dlg .dtext { font-size: 16px; line-height: 1.6; color: var(--ink); min-height: 52px; }
+  #dlg .hint { color: #4a5a7d; font-size: 11px; margin-top: 8px; text-align: right; }
+  #mutcard { position: absolute; top: 44px; right: 12px; display: none; z-index: 5; max-width: 300px;
+             background: rgba(20,8,16,0.92); border: 1px solid #7d2b4a; border-radius: 10px; padding: 12px 14px;
+             font-size: 13px; line-height: 1.7; color: #ffc9ce; }
+  #mutcard b { color: #ff8fa5; }
+  #toast { position: absolute; top: 44px; left: 50%; transform: translateX(-50%); display: none; z-index: 8;
+           background: rgba(4,10,20,0.92); border: 1px solid #2b4a66; border-radius: 8px; padding: 10px 18px;
+           font-size: 14px; color: var(--gold); white-space: nowrap; }
+  #splash { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; z-index: 20;
+            background: #01050c; border-radius: 10px; }
+  #splash .mark { text-align: center; }
+  #splash .vn { font-family: Georgia, serif; font-size: 64px; color: var(--cyan); letter-spacing: 14px; text-shadow: 0 0 30px rgba(57,230,255,0.6); }
+  #splash .sub { color: #4a5a7d; font-size: 13px; letter-spacing: 4px; margin-top: 8px; }
+  #touch { display: none; position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+  .tbtn { position: absolute; pointer-events: auto; background: rgba(57,230,255,0.07); border: 2px solid rgba(57,230,255,0.35); color: var(--cyan); border-radius: 50%; font-size: 20px; font-weight: bold; display: flex; align-items: center; justify-content: center; user-select: none; }
+  .tbtn:active { background: rgba(57,230,255,0.25); }
+  #t-up { left: 76px; bottom: 112px; width: 58px; height: 58px; }
+  #t-down { left: 76px; bottom: 18px; width: 58px; height: 58px; }
+  #t-left { left: 22px; bottom: 65px; width: 58px; height: 58px; }
+  #t-right { left: 130px; bottom: 65px; width: 58px; height: 58px; }
+  #t-act { right: 22px; bottom: 34px; width: 76px; height: 76px; font-size: 15px; }
+  #t-over { right: 112px; bottom: 88px; width: 52px; height: 52px; font-size: 14px; }
+  #t-wave { right: 112px; bottom: 22px; width: 52px; height: 52px; font-size: 14px; }
+  #credit { position: absolute; bottom: -26px; right: 4px; font-size: 11px; color: #2a3a52; }
+  #tutskip { position: absolute; bottom: 10px; left: 10px; display: none; z-index: 9;
+             background: rgba(4,10,20,0.85); border: 1px solid #2b4a66; border-radius: 8px;
+             color: #8fa3d4; font-size: 12px; padding: 8px 14px; cursor: pointer; }
+  #tutskip:hover { color: #d8ecff; border-color: #39e6ff; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="960" height="640"></canvas>
+  <div id="splash"><div class="mark"><div class="vn">VN</div><div class="sub">PRESENTS</div></div></div>
+  <div id="ui"></div>
+  <div id="dlg"></div>
+  <div id="mutcard"></div>
+  <div id="toast"></div>
+  <button id="tutskip">Skip tutorial</button>
+  <div id="touch">
+    <div class="tbtn" id="t-up">▲</div>
+    <div class="tbtn" id="t-down">▼</div>
+    <div class="tbtn" id="t-left">◀</div>
+    <div class="tbtn" id="t-right">▶</div>
+    <div class="tbtn" id="t-act">ACT</div>
+    <div class="tbtn" id="t-over">OVR</div>
+    <div class="tbtn" id="t-wave">WAVE</div>
+  </div>
+  <div id="credit">VN</div>
+</div>
+<script src="js/util.js"></script>
+<script src="js/sim.js"></script>
+<!-- integration: other roles' deliverables (adapters prefer these when present) -->
+<script src="dialogue.js"></script>
+<script src="assets/art.js"></script>
+<script src="assets/vfx.js"></script>
+<script src="audio.js"></script>
+<!-- built-in fallbacks -->
+<script src="js/story.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
