@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>LANTERNVALE — a cozy walking game by VN</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #14101a; height: 100%; }
+  body { display: flex; align-items: center; justify-content: center; font-family: system-ui, sans-serif; }
+  #wrap { position: relative; }
+  canvas#game {
+    width: min(96vw, 150vh);
+    aspect-ratio: 960 / 640;
+    height: auto;
+    background: #1d2138;
+    border-radius: 8px;
+    box-shadow: 0 12px 60px rgba(0,0,0,0.6);
+    touch-action: none;
+    image-rendering: auto;
+  }
+  #hint {
+    position: absolute; left: 0; right: 0; bottom: -30px;
+    text-align: center; color: #8a7a5f; font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="960" height="640"></canvas>
+  <div id="hint">WASD / arrows — walk &nbsp;·&nbsp; SPACE — talk / interact &nbsp;·&nbsp; J — journal &nbsp;·&nbsp; C — camera &nbsp;·&nbsp; ESC — pause</div>
+</div>
+<script src="js/util.js"></script>
+<script src="js/world.js"></script>
+<script src="dialogue.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/voiceover.js"></script>
+    <script src="js/assets.js"></script>
+<script src="ui.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
