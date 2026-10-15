@@ -1,6 +1,6 @@
 # Daily Games Arcade
 
-A brand-new original browser game, every single day. Each one is 90+ minutes of playable content, free forever, no downloads — just open and play.
+A brand-new original browser game, every single day. Each one is a complete game — free forever, no downloads — just open and play.
 
 **Play them all:** https://vivekn4.github.io/daily-games/
 **Also on itch.io:** https://trigger-fingerr.itch.io
