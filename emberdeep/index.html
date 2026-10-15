@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Emberdeep — a tiny roguelike dungeon quest</title>
+<meta name="description" content="Emberdeep: a tiny roguelike dungeon RPG. Ten procedurally-generated floors, seven enemy types, four bosses, three endings. Free HTML5 game.">
+<style>
+  :root { --ink: #f0e6d2; --dim: #b8a888; --gold: #ffd75e; --bg: #07060c; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; background: #020208; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); }
+  #wrap { position: relative; width: min(96vw, 960px); aspect-ratio: 3/2; }
+  canvas#game { width: 100%; height: 100%; display: block; border-radius: 10px; background: var(--bg); box-shadow: 0 0 60px rgba(255,140,46,0.08); }
+  #ui { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  #ui .panel, #ui .dlg { pointer-events: auto; background: rgba(10,8,16,0.94); border: 1px solid #4a3a28; border-radius: 14px; padding: 28px 34px; max-width: 620px; width: 92%; text-align: center; box-shadow: 0 12px 50px rgba(0,0,0,0.7); }
+  #ui h1 { font-family: Georgia, serif; font-size: 44px; letter-spacing: 8px; color: var(--gold); margin-bottom: 10px; }
+  #ui h2 { font-family: Georgia, serif; font-size: 26px; color: var(--gold); margin-bottom: 12px; }
+  #ui .tag { color: var(--dim); font-size: 15px; line-height: 1.6; margin-bottom: 14px; }
+  #ui .ctl { color: #8d8267; font-size: 13px; line-height: 1.8; margin-bottom: 16px; }
+  #ui .seed { color: #6b6250; font-size: 12px; margin-top: 12px; }
+  #ui .seed a { color: var(--gold); }
+  #ui .stats { color: var(--dim); font-size: 14px; line-height: 1.9; margin: 12px 0 18px; }
+  #ui .who { color: var(--gold); font-weight: bold; font-size: 14px; margin-bottom: 6px; }
+  #ui .dlg { text-align: left; }
+  #ui .dlg p { font-size: 16px; line-height: 1.6; }
+  #ui .dlg .hint { color: #6b6250; font-size: 12px; margin-top: 12px; text-align: center; }
+  #ui .cards { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+  #ui .card { pointer-events: auto; background: #171221; border: 1px solid #5a4a33; border-radius: 10px; color: var(--ink); padding: 14px 16px; width: 170px; cursor: pointer; text-align: left; font-size: 14px; }
+  #ui .card b { display: block; color: var(--gold); margin-bottom: 6px; font-size: 15px; }
+  #ui .card span { color: var(--dim); font-size: 13px; }
+  #ui .card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  button { font-family: inherit; }
+  #ui button.big, #ui button:not(.card) { pointer-events: auto; }
+  button.big { background: #b34724; color: #fff; border: none; border-radius: 10px; padding: 14px 30px; font-size: 17px; font-weight: bold; cursor: pointer; }
+  button.big:hover { background: #d0562c; }
+  #ui button:not(.big):not(.card) { background: transparent; color: var(--dim); border: 1px solid #4a3a28; border-radius: 8px; padding: 10px 18px; font-size: 14px; cursor: pointer; margin: 4px; }
+  #ui button:not(.big):not(.card):hover { color: var(--ink); border-color: var(--gold); }
+  #mutebtn { position: absolute; top: 10px; right: 12px; z-index: 5; background: rgba(0,0,0,0.5); color: #fff; border: 1px solid #4a3a28; border-radius: 8px; font-size: 18px; padding: 6px 10px; cursor: pointer; }
+  #touch { display: none; position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+  .tbtn { position: absolute; pointer-events: auto; background: rgba(255,255,255,0.08); border: 2px solid rgba(255,215,94,0.35); color: #ffd75e; border-radius: 50%; font-size: 22px; font-weight: bold; display: flex; align-items: center; justify-content: center; user-select: none; }
+  .tbtn:active { background: rgba(255,215,94,0.25); }
+  #t-up { left: 26px; bottom: 118px; width: 62px; height: 62px; }
+  #t-down { left: 26px; bottom: 20px; width: 62px; height: 62px; }
+  #t-left { left: -38px; bottom: 69px; width: 62px; height: 62px; }
+  #t-right { left: 90px; bottom: 69px; width: 62px; height: 62px; }
+  #t-atk { right: 26px; bottom: 40px; width: 84px; height: 84px; font-size: 30px; }
+  #t-heal { right: 126px; bottom: 96px; width: 56px; height: 56px; font-size: 18px; }
+  #t-bomb { right: 126px; bottom: 24px; width: 56px; height: 56px; font-size: 18px; }
+  #credit { position: absolute; bottom: -26px; right: 4px; font-size: 11px; color: #4a4438; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="960" height="640"></canvas>
+  <button id="mutebtn" title="Mute (M)">🔊</button>
+  <div id="ui"></div>
+  <div id="touch">
+    <div class="tbtn" id="t-up">▲</div>
+    <div class="tbtn" id="t-down">▼</div>
+    <div class="tbtn" id="t-left">◀</div>
+    <div class="tbtn" id="t-right">▶</div>
+    <div class="tbtn" id="t-atk">⚔</div>
+    <div class="tbtn" id="t-heal">🧪</div>
+    <div class="tbtn" id="t-bomb">💣</div>
+  </div>
+  <div id="credit">VN</div>
+</div>
+<script src="js/util.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/dungeon.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
