@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>COLD LEAD — Night Shift Detective</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #06060c; height: 100%; overflow: hidden;
+    font-family: 'Courier New', monospace; }
+  #wrap { display: flex; align-items: center; justify-content: center; height: 100vh; }
+  #game { background: #06060c; image-rendering: pixelated; touch-action: none; cursor: pointer; }
+  #hint { position: fixed; bottom: 6px; width: 100%; text-align: center; color: #3a4a6a;
+    font-size: 11px; pointer-events: none; }
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game" width="960" height="600"></canvas></div>
+<div id="hint">click / tap · keys 1-9 · arrows + enter · B board · Esc pause · M mute</div>
+<script src="js/util.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/casegen.js"></script>
+<script src="js/dialogue.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+<script src="js/main2.js"></script>
+</body>
+</html>
