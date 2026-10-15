@@ -45,6 +45,8 @@
   }
   function captionBar(c, text, y) {
     c.fillStyle = "rgba(5,5,12,0.88)"; c.fillRect(40, y, W - 80, 96);
+    var FX = globalThis.ColdLeadFX;
+    if (FX) FX.overlayTex(c, FX.textures().paper, 40, y, W - 80, 96, 0.5, "overlay");
     c.strokeStyle = "#4a5a7a"; c.strokeRect(40, y, W - 80, 96);
     c.fillStyle = "#d8dce8"; c.font = "15px 'Courier New', monospace"; c.textAlign = "left"; c.textBaseline = "top";
     var lines = U.wrap(c, text, W - 110);
@@ -59,6 +61,20 @@
     // city silhouette
     c.fillStyle = "#080810";
     var x = 0; while (x < W) { var bw = 40 + rng.next() * 70, bh = 60 + rng.next() * 120; c.fillRect(x, H - bh - 60, bw, bh); x += bw + 6; }
+    // detective walking through the rain (CC0 sprite, fail-soft)
+    var A = globalThis.ColdLeadAssets;
+    var wimg = A && (A.get("det_walk" + (Math.floor(t * 6) % 4)) || A.get("det_idle"));
+    if (wimg) {
+      var dw = 88, dh = 176, dx = 120 + Math.sin(t * 0.7) * 8;
+      c.save();
+      c.imageSmoothingEnabled = false;
+      // ground shadow + neon rim
+      c.fillStyle = "rgba(0,0,0,0.5)";
+      c.beginPath(); c.ellipse(dx + dw / 2, H - 62, dw * 0.45, 10, 0, 0, 7); c.fill();
+      c.drawImage(wimg, dx, H - 62 - dh, dw, dh);
+      c.fillStyle = "rgba(255,79,216,0.10)"; c.fillRect(dx + dw - 10, H - 62 - dh, 10, dh);
+      c.restore();
+    }
     SP().neonSign(c, W / 2, 150, "COLD LEAD", "#ff4fd8", t);
     titleText(c, "NIGHT SHIFT DETECTIVE", W / 2, 205, 20, "#8a9ac0");
     titleText(c, "Five nights. Five bodies. One truth.", W / 2, 245, 15, "#5a6a8a");
@@ -122,7 +138,7 @@
     var c = ctx(), G = C(); noirBg(c, t, 16);
     titleText(c, "PRECINCT — NIGHT " + G.night, W / 2, 60, 24, "#e8b64f");
     // Reyes portrait (fixed seed)
-    SP().drawPortrait(c, SP().portraitSpec("reyes"), 80, 110, 120);
+    SP().drawSuspectFigure(c, "Dana Reyes", "reyes", 80, 110, 120);
     c.fillStyle = "#8a9ac0"; c.font = "14px 'Courier New', monospace"; c.textAlign = "left";
     c.fillText("CAPT. D. REYES", 80, 250);
     c.fillStyle = "#d8dce8"; c.font = "15px 'Courier New', monospace";
@@ -145,6 +161,8 @@
     // paint scene
     c.save(); c.beginPath(); c.rect(0, 46, W, 300); c.clip();
     SP().SCENES[loc.painter](c, W, 300, U.RNG(U.hashStr(G.scene)), t);
+    var FX = globalThis.ColdLeadFX;
+    if (FX) FX.overlayTex(c, FX.textures().concrete, 0, 46, W, 300, 0.35, "overlay");
     SP().drawRain(c, W, 346, M.rainDrops, t);
     c.restore();
     // hotspots (flavor) — dots painted over their hit-areas via postDraw
@@ -164,7 +182,7 @@
         // mini portraits over suspect buttons
         var sx2 = 40;
         G.case.suspects.forEach(function (s) {
-          SP().drawPortrait(c, SP().portraitSpec(s.portraitSeed), sx2 + 6, 538, 44);
+          SP().drawSuspectFigure(c, s.name, s.portraitSeed, sx2 + 6, 538, 44);
           sx2 += 156;
         });
       };
@@ -197,7 +215,7 @@
       return function () {
         if (prev) prev();
         list.forEach(function (sd) {
-          SP().drawPortrait(c, SP().portraitSpec(sd.s.portraitSeed), sd.x + 6, 538, 44);
+          SP().drawSuspectFigure(c, sd.s.name, sd.s.portraitSeed, sd.x + 6, 538, 44);
           c.fillStyle = sd.s.locked ? "#ff8a8a" : "#d8dce8";
           c.font = "12px 'Courier New', monospace"; c.textAlign = "left"; c.textBaseline = "middle";
           var nm = sd.s.name.split(" ");
@@ -226,7 +244,7 @@
     drawHUD(c);
     var s = GM().susById(G, d.suspectId);
     noirBg(c, t, 21);
-    SP().drawPortrait(c, SP().portraitSpec(s.portraitSeed), 60, 90, 190);
+    SP().drawSuspectFigure(c, s.name, s.portraitSeed, 60, 90, 190);
     c.fillStyle = "#e8b64f"; c.font = "bold 16px 'Courier New', monospace"; c.textAlign = "left"; c.textBaseline = "middle";
     c.fillText(s.name.toUpperCase(), 60, 300);
     c.fillStyle = "#8a9ac0"; c.font = "13px 'Courier New', monospace";
@@ -303,7 +321,7 @@
     });
     M.postDraw = function () {
       cardData.forEach(function (cd) {
-        SP().drawPortrait(c, SP().portraitSpec(cd.s.portraitSeed), cd.x + 8, 122, 56);
+        SP().drawSuspectFigure(c, cd.s.name, cd.s.portraitSeed, cd.x + 8, 122, 56);
         c.fillStyle = "#d8dce8"; c.font = "12px 'Courier New', monospace"; c.textAlign = "left"; c.textBaseline = "top";
         var nm = cd.s.name.split(" ");
         c.fillText(nm[0], cd.x + 72, 126);
@@ -368,7 +386,7 @@
       button("accuse:no", W / 2 - 110, H - 80, 220, 44, "Not yet");
     } else {
       var s2 = GM().susById(G, M.accuseSel);
-      SP().drawPortrait(c, SP().portraitSpec(s2.portraitSeed), W / 2 - 60, 170, 120);
+      SP().drawSuspectFigure(c, s2.name, s2.portraitSeed, W / 2 - 60, 170, 120);
       titleText(c, "Accuse " + s2.name + "?", W / 2, 330, 20, "#d8dce8");
       titleText(c, GM().strongLinks(G, s2.id) + " strong evidence links", W / 2, 360, 14, "#8a9ac0");
       button("accuse:yes", W / 2 - 230, 420, 200, 48, "ACCUSE", { accent: "#ff5a5a" });
@@ -405,6 +423,7 @@
   // ---------- ENDING ----------
   SCREENS.endingChoice = function (dt, t) {
     var c = ctx(), G = C();
+    if (!SCREENS.endingChoice._vo) { SCREENS.endingChoice._vo = true; VO("composer_confront"); }
     noirBg(c, t, 25);
     titleText(c, "THE PALE COMPOSER", W / 2, 80, 26, "#b14fff", "#b14fff");
     c.fillStyle = "#d8dce8"; c.font = "15px 'Courier New', monospace"; c.textAlign = "center";
@@ -485,12 +504,12 @@
         if (parts[1] === "textspeed") M.settings.textSpeed = (M.settings.textSpeed + 1) % 3;
         else if (parts[1] === "shake") M.settings.shake = !M.settings.shake;
         else if (parts[1] === "mute") { M.settings.mute = !M.settings.mute; AU().setMuted(M.settings.mute); }
-        else if (parts[1] === "narrate") { M.settings.narrate = !M.settings.narrate; if (!M.settings.narrate) M.stopNarrate(); }
+        else if (parts[1] === "narrate") { M.settings.narrate = !M.settings.narrate; if (!M.settings.narrate) M.stopNarrate(); try { if (globalThis.VoiceOver) globalThis.VoiceOver.setEnabled(M.settings.narrate); } catch (e) {} }
         M.storeSettings();
         break;
       case "intro":
         if (parts[1] === "skip") M.typer.skip();
-        else { GM().startNight(G, 1); M.screen = "brief"; M.typer.start(briefText(G)); M.narrate(briefText(G)); }
+        else { GM().startNight(G, 1); M.screen = "brief"; M.typer.start(briefText(G)); M.narrate(briefText(G)); VO('night' + G.night); }
         break;
       case "brief":
         if (parts[1] === "skip") M.typer.skip();
@@ -510,15 +529,15 @@
       case "accuse":
         handleAccuse(parts); break;
       case "result":
-        if (parts[1] === "next") { GM().save(G); GM().startNight(G, G.night + 1); M.screen = "brief"; M.typer.start(briefText(G)); M.narrate(briefText(G)); }
-        else if (parts[1] === "ending") { M.screen = "endingChoice"; }
+        if (parts[1] === "next") { GM().save(G); GM().startNight(G, G.night + 1); M.screen = "brief"; M.typer.start(briefText(G)); M.narrate(briefText(G)); VO('night' + G.night); }
+        else if (parts[1] === "ending") { SCREENS.endingChoice._vo = false; M.screen = "endingChoice"; }
         else if (parts[1] === "menu") { M.screen = "title"; }
         break;
       case "end":
         if (parts[1] === "choose") {
           var ch = GM().chooseEnding(G, parts[2]);
           M.endingText = ch.text; M.screen = "ending";
-          M.typer.start(ch.text); M.narrate(ch.text);
+          M.typer.start(ch.text); M.narrate(ch.text); try { if (globalThis.VoiceOver) globalThis.VoiceOver.playEnding(parts[2]); } catch (e) {}
           GM().save(G);
         } else if (parts[1] === "new") startNew();
         else if (parts[1] === "replay") { var s = G.seed; startNew(s); }
@@ -538,13 +557,14 @@
     if (G.failedNights.length) t += "\n\nAnd detective… the cold ones from before? The Composer's laughing. Don't give him another.";
     return t;
   }
+  function VO(id) { try { if (globalThis.VoiceOver) globalThis.VoiceOver.play(id); } catch (e) {} }
 
   function startNew(seed) {
     seed = (seed === undefined) ? ((Math.random() * 0xffffffff) >>> 0) : seed;
     M.G = GM().create(seed);
     M.G.settings = M.settings;
     M.screen = "intro";
-    M.typer.start(INTRO_TXT); M.narrate(INTRO_TXT);
+    M.typer.start(INTRO_TXT); M.narrate(INTRO_TXT); VO('intro');
     AU().startRain();
   }
   function continueGame() {
@@ -552,13 +572,13 @@
     if (!meta) return;
     M.G = GM().load(meta);
     M.G.settings = M.settings;
-    M.screen = "brief"; M.typer.start(briefText(M.G)); M.narrate(briefText(M.G));
+    M.screen = "brief"; M.typer.start(briefText(M.G)); M.narrate(briefText(M.G)); VO('night' + M.G.night);
   }
   function goBoard() {
     if (["scene", "interrogate"].indexOf(M.screen) < 0) return;
     M.boardSel = { clue: null }; M.screen = "board"; M.stopNarrate();
   }
-  M.goBoard = goBoard; M.activate = activate;
+  M.goBoard = goBoard; M.activate = activate; M.debugScene = debugScene;
 
   function handleScene(parts, p) {
     var G = M.G;
@@ -606,6 +626,10 @@
     if (parts[1] === "clue") {
       M.boardSel.clue = (M.boardSel.clue === parts[2]) ? null : parts[2];
       AU().paper();
+      if (M.boardSel.clue) {
+        var _cl = GM().clueById(G, M.boardSel.clue);
+        if (_cl && _cl.title === "A white piano key") VO("composer_key");
+      }
     } else if (parts[1] === "sus") {
       if (M.boardSel.clue) {
         GM().pinClue(G, M.boardSel.clue, parts[2]);

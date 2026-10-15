@@ -24,7 +24,25 @@
   var postDraw = null;
 
   // ---------- boot ----------
+  var assetsReady = false, styleVariant = "a";
   function boot() {
+    if (typeof document === "undefined") return;
+    // error hook for headless QA
+    try {
+      window.__clErrors = [];
+      window.addEventListener("error", function (e) { window.__clErrors.push(String((e.error && e.error.stack) || e.message)); });
+    } catch (e2) {}
+    styleVariant = (globalThis.ColdLeadFX && globalThis.ColdLeadFX.styleFromQuery()) || "a";
+    var go = function () {
+      if (assetsReady) return; assetsReady = true;
+      bootNow();
+    };
+    if (globalThis.ColdLeadAssets) {
+      globalThis.ColdLeadAssets.ready.then(go);
+      setTimeout(go, 2500); // fail-soft: never block boot on assets
+    } else go();
+  }
+  function bootNow() {
     if (typeof document === "undefined") return;
     cv = document.getElementById("game");
     ctx = cv.getContext("2d");
@@ -36,12 +54,15 @@
     cv.addEventListener("touchstart", function (e) { e.preventDefault(); onTap(e.touches[0]); }, { passive: false });
     document.addEventListener("keydown", onKey);
     var q = parseQuery();
-    if (q.scene) { debugScene(q.scene); }
+    if (q.scene) { (globalThis.CLMain.debugScene || (function () { throw new Error("no debugScene"); })) (q.scene); }
     requestAnimationFrame(frame);
   }
 
   function parseQuery() {
     var o = {};
+    try {
+      if (globalThis.__CL_Q) return globalThis.__CL_Q;
+    } catch (e) {}
     if (typeof location !== "undefined" && location.search) {
       location.search.slice(1).split("&").forEach(function (p) {
         var kv = p.split("="); o[kv[0]] = decodeURIComponent(kv[1] || "");
@@ -66,6 +87,7 @@
       if (s) settings = Object.assign(settings, s);
     } catch (e) {}
     AU().setMuted(settings.mute);
+    try { if (globalThis.VoiceOver) { globalThis.VoiceOver.setEnabled(settings.narrate); globalThis.VoiceOver.preload(); } } catch (e2) {}
   }
   function storeSettings() {
     try { localStorage.setItem("coldlead_settings", JSON.stringify(settings)); } catch (e) {}
@@ -82,7 +104,7 @@
       window.speechSynthesis.speak(u);
     } catch (e) {}
   }
-  function stopNarrate() { try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (e) {} }
+  function stopNarrate() { try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (e) {} try { if (globalThis.VoiceOver) globalThis.VoiceOver.stop(); } catch (e2) {} }
 
   // ---------- typewriter ----------
   var typer = {
@@ -207,8 +229,19 @@
     fn(dt, t);
     drawButtons();
     if (globalThis.CLMain.postDraw) { var pd = globalThis.CLMain.postDraw; globalThis.CLMain.postDraw = null; pd(); }
-    // signature VFX: film grain
-    SP().drawGrain(ctx, W, H, U.RNG(grainSeed + ((t * 12) | 0)));
+    // signature VFX stack: film grain, vignette, scanlines, style grade
+    var FX = globalThis.ColdLeadFX;
+    if (FX) {
+      SP().drawGrain(ctx, W, H, U.RNG(grainSeed + ((t * 12) | 0)));
+      var TEX = FX.textures();
+      ctx.save(); ctx.globalAlpha = 0.9; ctx.drawImage(TEX.vignette, 0, 0); ctx.restore();
+      if (styleVariant !== "a") {
+        ctx.save(); ctx.globalAlpha = 0.5; ctx.drawImage(TEX.scanlines, 0, 0); ctx.restore();
+      }
+      FX.applyStyle(ctx, styleVariant, t);
+    } else {
+      SP().drawGrain(ctx, W, H, U.RNG(grainSeed + ((t * 12) | 0)));
+    }
   }
 
   // expose for part 2
