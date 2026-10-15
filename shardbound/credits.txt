@@ -1,0 +1,10 @@
+SHARDBOUND
+==========
+Game by Vivek Nair.
+
+All code, pixel art, music and sound effects were made for this game.
+
+Font: "Press Start 2P" by CodeMan38 (cody@zone38.net)
+Licensed under the SIL Open Font License, Version 1.1.
+https://openfontlicense.org
+The font is used here as a pre-rendered bitmap (assets/font.png).

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Shardbound</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAAAAAAAAQCEeRdzAAAAbklEQVR4nGNkoBCwDG4DJAQU/oPoFx8eMJJsAEjzkzd3GGLuRDAcsGD4j8sQrAYgawa7YMYDBokMBayG4HQBTDMhgNUAkE0gZzucMGFYcWENyHac4YDTBTBDJBhwa8ZrAMwQfPIEDSAGjBpABQMA3w8x/ycVbqkAAAAASUVORK5CYII=">
+<style>
+  html, body { margin: 0; padding: 0; background: #000; height: 100%; overflow: hidden; touch-action: none; }
+  #wrap { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  canvas { image-rendering: pixelated; image-rendering: crisp-edges; display: block; background: #000; }
+  #loading { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; font: 14px monospace; }
+  #touch { display: none; position: fixed; inset: 0; pointer-events: none; }
+  #touch .b { position: absolute; pointer-events: auto; background: rgba(255,255,255,0.14); border: 2px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.8); font: bold 16px monospace; display: flex; align-items: center; justify-content: center; user-select: none; -webkit-user-select: none; }
+  #touch .b.on { background: rgba(255,255,255,0.35); }
+  #touch .d { width: 52px; height: 52px; border-radius: 10px; }
+  #touch .r { width: 64px; height: 64px; border-radius: 50%; }
+  .up { left: 70px; bottom: 132px; } .down { left: 70px; bottom: 20px; }
+  .left { left: 14px; bottom: 76px; } .right { left: 126px; bottom: 76px; }
+  .ok { right: 20px; bottom: 70px; } .cancel { right: 96px; bottom: 26px; }
+  .run { right: 96px; bottom: 112px; width: 48px !important; height: 48px !important; font-size: 11px !important; }
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game" width="256" height="224"></canvas></div>
+<div id="loading">Loading...</div>
+<div id="touch">
+  <div class="b d up" data-a="up">&#9650;</div>
+  <div class="b d down" data-a="down">&#9660;</div>
+  <div class="b d left" data-a="left">&#9664;</div>
+  <div class="b d right" data-a="right">&#9654;</div>
+  <div class="b r ok" data-a="ok">A</div>
+  <div class="b r cancel" data-a="cancel">B</div>
+  <div class="b r run" data-a="run">RUN</div>
+</div>
+<script src="js/manifest.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/field.js"></script>
+<script src="js/menus.js"></script>
+<script src="js/battle.js"></script>
+<script src="js/mapdata.js"></script>
+<script src="js/maps.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
