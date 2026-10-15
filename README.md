@@ -15,6 +15,7 @@ A brand-new original browser game, every single day. Each one is a complete game
 |---|------|-------|------|
 | 001 | **Emberdeep** — a tiny roguelike dungeon quest. Ten floors. One ember. Three endings. | Roguelike RPG | [Play](emberdeep/index.html) · [itch.io](https://trigger-fingerr.itch.io/emberdeep) |
 | ★ | **Shardbound** — a tale of four shards. A complete 8-bit JRPG by Vivek: 47 maps, 3 heroes, 8 bosses. | JRPG | [Play](shardbound/index.html) · [itch.io](https://trigger-fingerr.itch.io/shardbound) |
+| 004 | **lanternvale** - a cozy walking sim | cozy adventure | [play](https://vivekn4.github.io/daily-games/lanternvale/index.html), [itch.io](https://trigger-fingerr.itch.io/lanternvale) |
 
 ## How it works
 
