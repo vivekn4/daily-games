@@ -1,0 +1,2364 @@
+{
+ "tileSize": 16,
+ "legend": {
+  ".": {
+   "name": "grass",
+   "walkable": true
+  },
+  ",": {
+   "name": "grass tuft",
+   "walkable": true
+  },
+  "\"": {
+   "name": "flowers",
+   "walkable": true
+  },
+  ";": {
+   "name": "tall grass",
+   "walkable": true
+  },
+  "T": {
+   "name": "tree",
+   "walkable": false
+  },
+  "R": {
+   "name": "rock",
+   "walkable": false
+  },
+  "M": {
+   "name": "mountain",
+   "walkable": false
+  },
+  "P": {
+   "name": "dirt path",
+   "walkable": true
+  },
+  "p": {
+   "name": "plaza stone",
+   "walkable": true
+  },
+  "W": {
+   "name": "water",
+   "walkable": false
+  },
+  "~": {
+   "name": "waterfall",
+   "walkable": false
+  },
+  "B": {
+   "name": "building wall",
+   "walkable": false
+  },
+  "D": {
+   "name": "door / gate",
+   "walkable": true
+  },
+  "F": {
+   "name": "fence",
+   "walkable": false
+  },
+  "#": {
+   "name": "hedge",
+   "walkable": false
+  },
+  "f": {
+   "name": "fountain",
+   "walkable": false
+  },
+  "O": {
+   "name": "pillar",
+   "walkable": false
+  },
+  "S": {
+   "name": "sand",
+   "walkable": true
+  },
+  "G": {
+   "name": "fairway",
+   "walkable": true
+  },
+  "g": {
+   "name": "putting green",
+   "walkable": true
+  },
+  "C": {
+   "name": "tennis court",
+   "walkable": true
+  },
+  "c": {
+   "name": "cricket pitch",
+   "walkable": true
+  },
+  "K": {
+   "name": "ring mat",
+   "walkable": true
+  },
+  "d": {
+   "name": "dojo floor",
+   "walkable": true
+  },
+  "A": {
+   "name": "asphalt court",
+   "walkable": true
+  },
+  "a": {
+   "name": "cracked asphalt",
+   "walkable": true
+  },
+  "L": {
+   "name": "lamppost",
+   "walkable": false
+  },
+  "+": {
+   "name": "bridge",
+   "walkable": true
+  },
+  "*": {
+   "name": "sparkle point",
+   "walkable": true
+  },
+  "N": {
+   "name": "signpost",
+   "walkable": false
+  },
+  "b": {
+   "name": "bench",
+   "walkable": false
+  },
+  "^": {
+   "name": "stairs",
+   "walkable": true
+  },
+  "X": {
+   "name": "statue/plinth",
+   "walkable": false
+  }
+ },
+ "maps": {
+  "hub": {
+   "name": "Hall of Legends",
+   "w": 60,
+   "h": 44,
+   "tiles": [
+    "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+    "T........,...;..........,..............;..,................T",
+    "T...,....\".........;,.....BBBBBBBB\"T.......................T",
+    "T..BBBB.BBBB.BBBB.T.,.,L..B\"..\".TB..L........N..,...\"......T",
+    "T..B..B.B..B.B..B.....\"...B...\",.B,....,.,..AAAAAA..AAAAAA.T",
+    "T,.BDBB.BDBB.B..B......;..BBBDBBBB..........AAAAAA..AAAAAA.T",
+    "T...........,BDBB........\"....*N....,.......AAAAAA..AAAAAA.T",
+    "T............FFFF\"..,..N.\"........\"\".,.,..T.AAAAAA..AAAAAA.T",
+    "T........\"....^*F,\"....CCCCC...CCCCC..;,,...AAAAAA..AAAAAA.T",
+    "T............FFFF......FFPFF..\"FFPFFT...,;.L.............L.T",
+    "T..,,,,,,,,,T.....\"....FFPFF...FFPFF.....,.....aaaaaaa\"\"\"\".T",
+    "T..N,,,,,,,N.\"\"N\".\"....CCCCC...CCCCC.....\"..,..aaaaaaa\"\"N\".T",
+    "T..N,,,P,,,N.\"b\"\"PP..,.\"....\".....,.\"......PP..aaaaaaa\"b\"\".T",
+    "T..,,,,,,,,,.\"\"\"\".PPP......\".PP...\"......PPP...aaaaaaa\"\"\"\".T",
+    "T.,...........,...\".PP.......PPN......N,PP............,....T",
+    "T..........\"....\"..,.PP.N....PP........PP.......,..........T",
+    "T.......\"...,.........PPP....PD......PPP.;.................T",
+    "T.....L..;........,.....PPpppppppppLPP..;....,.............T",
+    "T..BBBBBB..,.............pppppOppppp...\"...,GNGGGGGGGGGGG..T",
+    "T..B....B.FKKKF..........ppOpppppOpp.....\"..G*GGGGGGggggG.,T",
+    "T..B....BTKKPKK.;........pppppppbppp........GGSSGGGGggNgG..T",
+    "T..BBDBBB.KKPKK..PPPPPNPPPppppffppppPPNPPPPPGGSSGGGGggggG.,T",
+    "T..FFFFFFTFKKKF........PPpOpppffppOpPP......GGGGGGGGGGGGG..T",
+    "T;.F^;.....,,.;..........ppppppppppp...;....GGGGGGGGGGGGG..T",
+    "T..FFFFFF.SSSSSSS........pppbppppp*p.....,.,GGGGGSSSGGGGG..T",
+    "T....X....SSNSSSS....,...ppOpppppOpp.....,..GGGGGSSSGGGGG\".T",
+    "T\"..T.....SSSSSSS;.......pppppOppppp...,....BDBGGGGGGGGGG..T",
+    "T...T.....SSSSSSS.,..,..PPpppppppppLPP.,...,BBB..;.........T",
+    "T...,..............,..PPP,...PP......PPP..........;....,..,T",
+    "T..\"..............,..PN...,..PPN...,..NPP......;...........T",
+    "T.................\".PP.......PP..,.,....PP..,...\"........,.T",
+    "T...BBBBBB.BBB....PPP....,.......BBB....;PPPF.FFTFF.F.BBBB.T",
+    "T...B....B\"BDB...PP.....L........BDBT......PF.FF*FF;F.BBBB.T",
+    "T.,.B....B.FFF............,.......,.T...,...F.FFcFFcF.,N...T",
+    "T...BBDBBB..*F...\"....MMMMMRR.....MMMMM....\"....cccc.......T",
+    "T...dddddd.FFF\"\"......MMMMMRN...T.MMMMM,......\".cccc.,.....T",
+    "T.\",dNddNd...W++W.....MMMMMRR.....MMMMM........;cccc.......T",
+    "T...dddddd.,.WWWW...,.MMMMMT.~~...MMMMM........,cccc....N..T",
+    "T.PLPPPPPPPPPPPLN.,...MMMMM..~~;..MMMMM....T....cccc..,b...T",
+    "T.PPPPPPPPPPPPPPP.....MMMMM..~~...MMMMM.....\"...cccc\"..,...T",
+    "T...............;.....MMMMM+WWWW+.MMMMM...\".,..........,.,.T",
+    "T,........\".\"...\"...,.MMMMM.WWWW..MMMMM...;................T",
+    "T........,..........,.MMMMM.......MMMMM...,........,.....;.T",
+    "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+   ],
+   "zones": [
+    {
+     "id": "plaza",
+     "name": "Plaza of Eight Pillars",
+     "rect": [
+      25,
+      17,
+      35,
+      27
+     ],
+     "theme": "The fading heart of the Hall."
+    },
+    {
+     "id": "messi",
+     "name": "Rosario Quarter",
+     "rect": [
+      1,
+      1,
+      17,
+      15
+     ],
+     "theme": "Argentine barrio: Grandoli pitch, napkin cafe, Celia's garden",
+     "goat": "messi"
+    },
+    {
+     "id": "federer",
+     "name": "Basel Lawn Club",
+     "rect": [
+      22,
+      1,
+      38,
+      13
+     ],
+     "theme": "Swiss alpine club: grass courts, clubhouse, trophy cabinet",
+     "goat": "federer"
+    },
+    {
+     "id": "serena",
+     "name": "Compton Courts",
+     "rect": [
+      42,
+      1,
+      58,
+      15
+     ],
+     "theme": "Public courts: cracked asphalt, Macci academy sign, memorial garden",
+     "goat": "serena"
+    },
+    {
+     "id": "tiger",
+     "name": "Cypress Links",
+     "rect": [
+      42,
+      16,
+      58,
+      28
+     ],
+     "theme": "Golf course: fairway, bunkers, 18th green, Navy tee marker",
+     "goat": "tiger"
+    },
+    {
+     "id": "sachin",
+     "name": "Bandra Nets",
+     "rect": [
+      42,
+      29,
+      58,
+      42
+     ],
+     "theme": "Mumbai maidan: cricket oval, practice nets, Desert Storm mural",
+     "goat": "sachin"
+    },
+    {
+     "id": "goku",
+     "name": "Mount Paozu",
+     "rect": [
+      22,
+      30,
+      38,
+      42
+     ],
+     "theme": "Training mountain: waterfall, hut, pure-heart stone, hidden cavern",
+     "goat": "goku"
+    },
+    {
+     "id": "bruce",
+     "name": "Kowloon Dojo",
+     "rect": [
+      1,
+      29,
+      17,
+      42
+     ],
+     "theme": "Hong Kong street + dojo: training yard, Be Water pond, storage shed",
+     "goat": "bruce"
+    },
+    {
+     "id": "ali",
+     "name": "Louisville Gym",
+     "rect": [
+      1,
+      16,
+      17,
+      28
+     ],
+     "theme": "Gym + desert ground: outdoor ring, torch plinth, Schwinn memorial",
+     "goat": "ali"
+    }
+   ],
+   "pois": [
+    {
+     "id": "fountain",
+     "name": "Fountain of Beginnings",
+     "x": 30,
+     "y": 21,
+     "type": "landmark",
+     "text": "Eight pillars. Eight lives. One visitor."
+    },
+    {
+     "id": "sign_messi",
+     "name": "Signpost",
+     "x": 24,
+     "y": 15,
+     "type": "sign",
+     "text": "Rosario Quarter <-"
+    },
+    {
+     "id": "sign_federer",
+     "name": "Signpost",
+     "x": 31,
+     "y": 14,
+     "type": "sign",
+     "text": "Basel Lawn Club ^"
+    },
+    {
+     "id": "sign_serena",
+     "name": "Signpost",
+     "x": 38,
+     "y": 14,
+     "type": "sign",
+     "text": "Compton Courts ->"
+    },
+    {
+     "id": "sign_tiger",
+     "name": "Signpost",
+     "x": 38,
+     "y": 21,
+     "type": "sign",
+     "text": "Cypress Links ->"
+    },
+    {
+     "id": "sign_sachin",
+     "name": "Signpost",
+     "x": 38,
+     "y": 29,
+     "type": "sign",
+     "text": "Bandra Nets ->"
+    },
+    {
+     "id": "sign_goku",
+     "name": "Signpost",
+     "x": 31,
+     "y": 29,
+     "type": "sign",
+     "text": "Mount Paozu v"
+    },
+    {
+     "id": "sign_bruce",
+     "name": "Signpost",
+     "x": 22,
+     "y": 29,
+     "type": "sign",
+     "text": "Kowloon Dojo <-"
+    },
+    {
+     "id": "sign_ali",
+     "name": "Signpost",
+     "x": 22,
+     "y": 21,
+     "type": "sign",
+     "text": "Louisville Gym <-"
+    },
+    {
+     "id": "celia_garden",
+     "name": "Celia's Garden",
+     "x": 15,
+     "y": 11,
+     "type": "memorial",
+     "text": "For Celia - who pointed at the sky."
+    },
+    {
+     "id": "sabr_lane",
+     "name": "SABR training lane",
+     "x": 23,
+     "y": 7,
+     "type": "landmark",
+     "text": "Sneak Attack By Roger: charge the second serve."
+    },
+    {
+     "id": "macci_sign",
+     "name": "Rick Macci Academy",
+     "x": 45,
+     "y": 3,
+     "type": "sign",
+     "text": "Rick Macci Tennis Academy - champions made here."
+    },
+    {
+     "id": "yetunde_garden",
+     "name": "Yetunde's Garden",
+     "x": 56,
+     "y": 11,
+     "type": "memorial",
+     "text": "For Yetunde - forever family."
+    },
+    {
+     "id": "navy_tee",
+     "name": "Navy Course tee marker",
+     "x": 45,
+     "y": 18,
+     "type": "landmark",
+     "text": "Where Earl kept score."
+    },
+    {
+     "id": "flag_18",
+     "name": "18th green flagstick",
+     "x": 54,
+     "y": 20,
+     "type": "landmark",
+     "text": "Sunday red. One putt."
+    },
+    {
+     "id": "desertstorm_mural",
+     "name": "Desert Storm mural",
+     "x": 55,
+     "y": 33,
+     "type": "landmark",
+     "text": "Sharjah, April 1998 - 143 and 134. Two days. One legend."
+    },
+    {
+     "id": "father_bench",
+     "name": "Ramesh's bench",
+     "x": 56,
+     "y": 37,
+     "type": "memorial",
+     "text": "For Ramesh - the first guide."
+    },
+    {
+     "id": "pureheart_stone",
+     "name": "Pure-heart stone",
+     "x": 28,
+     "y": 35,
+     "type": "landmark",
+     "text": "Only the pure of heart may pass."
+    },
+    {
+     "id": "bewater_plaque",
+     "name": "Be Water plaque",
+     "x": 16,
+     "y": 38,
+     "type": "sign",
+     "text": "Be water, my friend."
+    },
+    {
+     "id": "torch_plinth",
+     "name": "Olympic torch plinth",
+     "x": 5,
+     "y": 25,
+     "type": "landmark",
+     "text": "Rome 1960 - gold at eighteen."
+    },
+    {
+     "id": "schwinn_rack",
+     "name": "Schwinn memorial",
+     "x": 12,
+     "y": 25,
+     "type": "memorial",
+     "text": "Columbia Auditorium, October 1954 - it started with a stolen bicycle."
+    },
+    {
+     "id": "trophy_cabinet",
+     "name": "Trophy cabinet",
+     "x": 31,
+     "y": 6,
+     "type": "landmark",
+     "text": "Twenty majors. One loose panel."
+    },
+    {
+     "id": "grandoli_pitch",
+     "name": "Grandoli pitch",
+     "x": 7,
+     "y": 11,
+     "type": "landmark",
+     "text": "The Machine of '87 played here."
+    },
+    {
+     "id": "tournament_gate",
+     "name": "Tournament Gate",
+     "x": 30,
+     "y": 16,
+     "type": "gate",
+     "text": "Sealed. The eight pillars must burn first."
+    },
+    {
+     "id": "pillar_federer",
+     "name": "Pillar of Roger Federer",
+     "x": 30,
+     "y": 18,
+     "type": "pillar",
+     "goat": "federer",
+     "text": "The pillar of Roger Federer - dim, waiting."
+    },
+    {
+     "id": "pillar_serena",
+     "name": "Pillar of Serena Williams",
+     "x": 33,
+     "y": 19,
+     "type": "pillar",
+     "goat": "serena",
+     "text": "The pillar of Serena Williams - dim, waiting."
+    },
+    {
+     "id": "pillar_tiger",
+     "name": "Pillar of Tiger Woods",
+     "x": 34,
+     "y": 22,
+     "type": "pillar",
+     "goat": "tiger",
+     "text": "The pillar of Tiger Woods - dim, waiting."
+    },
+    {
+     "id": "pillar_sachin",
+     "name": "Pillar of Sachin Tendulkar",
+     "x": 33,
+     "y": 25,
+     "type": "pillar",
+     "goat": "sachin",
+     "text": "The pillar of Sachin Tendulkar - dim, waiting."
+    },
+    {
+     "id": "pillar_goku",
+     "name": "Pillar of Goku",
+     "x": 30,
+     "y": 26,
+     "type": "pillar",
+     "goat": "goku",
+     "text": "The pillar of Goku - dim, waiting."
+    },
+    {
+     "id": "pillar_bruce",
+     "name": "Pillar of Bruce Lee",
+     "x": 27,
+     "y": 25,
+     "type": "pillar",
+     "goat": "bruce",
+     "text": "The pillar of Bruce Lee - dim, waiting."
+    },
+    {
+     "id": "pillar_ali",
+     "name": "Pillar of Muhammad Ali",
+     "x": 26,
+     "y": 22,
+     "type": "pillar",
+     "goat": "ali",
+     "text": "The pillar of Muhammad Ali - dim, waiting."
+    },
+    {
+     "id": "pillar_messi",
+     "name": "Pillar of Lionel Messi",
+     "x": 27,
+     "y": 19,
+     "type": "pillar",
+     "goat": "messi",
+     "text": "The pillar of Lionel Messi - dim, waiting."
+    },
+    {
+     "id": "cafe_rincon",
+     "name": "Café El Rincón",
+     "x": 14,
+     "y": 8,
+     "type": "landmark",
+     "text": "Café El Rincón's fenced yard - where a sporting director signed a boy on a napkin."
+    },
+    {
+     "id": "library_pavilion",
+     "name": "The Hall Library",
+     "x": 34,
+     "y": 24,
+     "type": "landmark",
+     "text": "The Hall Library - Sachin's shelves. Sports section, second shelf."
+    },
+    {
+     "id": "food_stall",
+     "name": "Goku's food stall",
+     "x": 30,
+     "y": 32,
+     "type": "landmark",
+     "text": "The mountain food stall - the reigning eating champion trains here too."
+    }
+   ],
+   "npcs": [
+    {
+     "id": "goat_messi",
+     "name": "Lionel Messi",
+     "x": 7,
+     "y": 7,
+     "role": "goat",
+     "goat": "messi"
+    },
+    {
+     "id": "goat_federer",
+     "name": "Roger Federer",
+     "x": 29,
+     "y": 7,
+     "role": "goat",
+     "goat": "federer"
+    },
+    {
+     "id": "goat_serena",
+     "name": "Serena Williams",
+     "x": 50,
+     "y": 9,
+     "role": "goat",
+     "goat": "serena"
+    },
+    {
+     "id": "goat_tiger",
+     "name": "Tiger Woods",
+     "x": 50,
+     "y": 22,
+     "role": "goat",
+     "goat": "tiger"
+    },
+    {
+     "id": "goat_sachin",
+     "name": "Sachin Tendulkar",
+     "x": 49,
+     "y": 36,
+     "role": "goat",
+     "goat": "sachin"
+    },
+    {
+     "id": "goat_goku",
+     "name": "Goku",
+     "x": 31,
+     "y": 33,
+     "role": "goat",
+     "goat": "goku"
+    },
+    {
+     "id": "goat_bruce",
+     "name": "Bruce Lee",
+     "x": 6,
+     "y": 36,
+     "role": "goat",
+     "goat": "bruce"
+    },
+    {
+     "id": "goat_ali",
+     "name": "Muhammad Ali",
+     "x": 12,
+     "y": 20,
+     "role": "goat",
+     "goat": "ali"
+    },
+    {
+     "id": "keeper_messi",
+     "name": "Senor Gomez, kit man",
+     "x": 12,
+     "y": 7,
+     "role": "keeper",
+     "goat": "messi"
+    },
+    {
+     "id": "keeper_federer",
+     "name": "Herr Keller, groundskeeper",
+     "x": 25,
+     "y": 7,
+     "role": "keeper",
+     "goat": "federer"
+    },
+    {
+     "id": "keeper_serena",
+     "name": "Coach Dee",
+     "x": 46,
+     "y": 9,
+     "role": "keeper",
+     "goat": "serena"
+    },
+    {
+     "id": "keeper_tiger",
+     "name": "Caddie Joe",
+     "x": 48,
+     "y": 22,
+     "role": "keeper",
+     "goat": "tiger"
+    },
+    {
+     "id": "keeper_sachin",
+     "name": "Raju, groundskeeper",
+     "x": 46,
+     "y": 34,
+     "role": "keeper",
+     "goat": "sachin"
+    },
+    {
+     "id": "keeper_goku",
+     "name": "Old Fisher",
+     "x": 29,
+     "y": 35,
+     "role": "keeper",
+     "goat": "goku"
+    },
+    {
+     "id": "keeper_bruce",
+     "name": "Ah Fai, student",
+     "x": 7,
+     "y": 36,
+     "role": "keeper",
+     "goat": "bruce"
+    },
+    {
+     "id": "keeper_ali",
+     "name": "Keeper Sam",
+     "x": 6,
+     "y": 23,
+     "role": "keeper",
+     "goat": "ali"
+    },
+    {
+     "id": "kid_messi",
+     "name": "Rosario kid",
+     "x": 5,
+     "y": 10,
+     "role": "ambient",
+     "goat": "messi",
+     "patrol": [
+      3,
+      10,
+      9,
+      13
+     ]
+    },
+    {
+     "id": "fan_messi",
+     "name": "Traveling fan",
+     "x": 10,
+     "y": 12,
+     "role": "ambient",
+     "goat": "messi",
+     "patrol": [
+      8,
+      11,
+      12,
+      13
+     ]
+    },
+    {
+     "id": "ballkid_fed",
+     "name": "Ball kid",
+     "x": 33,
+     "y": 10,
+     "role": "ambient",
+     "goat": "federer",
+     "patrol": [
+      31,
+      8,
+      35,
+      11
+     ]
+    },
+    {
+     "id": "fan_fed",
+     "name": "Tennis fan",
+     "x": 24,
+     "y": 11,
+     "role": "ambient",
+     "goat": "federer",
+     "patrol": [
+      23,
+      8,
+      27,
+      11
+     ]
+    },
+    {
+     "id": "kid_serena1",
+     "name": "Court kid",
+     "x": 45,
+     "y": 6,
+     "role": "ambient",
+     "goat": "serena",
+     "patrol": [
+      44,
+      4,
+      49,
+      8
+     ]
+    },
+    {
+     "id": "kid_serena2",
+     "name": "Court kid",
+     "x": 55,
+     "y": 6,
+     "role": "ambient",
+     "goat": "serena",
+     "patrol": [
+      52,
+      4,
+      57,
+      8
+     ]
+    },
+    {
+     "id": "junior_tiger",
+     "name": "Junior golfer",
+     "x": 52,
+     "y": 24,
+     "role": "ambient",
+     "goat": "tiger",
+     "patrol": [
+      49,
+      22,
+      55,
+      26
+     ]
+    },
+    {
+     "id": "fan_tiger",
+     "name": "Golf fan",
+     "x": 46,
+     "y": 25,
+     "role": "ambient",
+     "goat": "tiger",
+     "patrol": [
+      44,
+      23,
+      48,
+      26
+     ]
+    },
+    {
+     "id": "kid_sachin1",
+     "name": "Gully kid",
+     "x": 45,
+     "y": 37,
+     "role": "ambient",
+     "goat": "sachin",
+     "patrol": [
+      43,
+      35,
+      47,
+      40
+     ]
+    },
+    {
+     "id": "kid_sachin2",
+     "name": "Gully kid",
+     "x": 53,
+     "y": 35,
+     "role": "ambient",
+     "goat": "sachin",
+     "patrol": [
+      52,
+      33,
+      56,
+      38
+     ]
+    },
+    {
+     "id": "villager_goku",
+     "name": "Villager",
+     "x": 33,
+     "y": 34,
+     "role": "ambient",
+     "goat": "goku",
+     "patrol": [
+      31,
+      32,
+      35,
+      36
+     ]
+    },
+    {
+     "id": "sparkid_goku",
+     "name": "Sparring kid",
+     "x": 30,
+     "y": 32,
+     "role": "ambient",
+     "goat": "goku",
+     "patrol": [
+      28,
+      31,
+      32,
+      34
+     ]
+    },
+    {
+     "id": "student_bruce",
+     "name": "Dojo student",
+     "x": 5,
+     "y": 35,
+     "role": "ambient",
+     "goat": "bruce",
+     "patrol": [
+      4,
+      35,
+      9,
+      37
+     ]
+    },
+    {
+     "id": "tea_bruce",
+     "name": "Tea vendor",
+     "x": 10,
+     "y": 38,
+     "role": "ambient",
+     "goat": "bruce"
+    },
+    {
+     "id": "sparkid_ali1",
+     "name": "Gym kid",
+     "x": 11,
+     "y": 21,
+     "role": "ambient",
+     "goat": "ali",
+     "patrol": [
+      10,
+      19,
+      14,
+      22
+     ]
+    },
+    {
+     "id": "sparkid_ali2",
+     "name": "Gym kid",
+     "x": 13,
+     "y": 21,
+     "role": "ambient",
+     "goat": "ali",
+     "patrol": [
+      10,
+      19,
+      14,
+      22
+     ]
+    },
+    {
+     "id": "archivist",
+     "name": "The Archivist",
+     "x": 30,
+     "y": 24,
+     "role": "archivist",
+     "patrol": [
+      26,
+      18,
+      34,
+      26
+     ]
+    }
+   ],
+   "warps": [
+    {
+     "id": "warp_plaza",
+     "name": "Plaza Fountain",
+     "x": 30,
+     "y": 24,
+     "zone": "plaza",
+     "unlocked": true
+    },
+    {
+     "id": "warp_messi",
+     "name": "Rosario Quarter Gate",
+     "x": 18,
+     "y": 13,
+     "zone": "messi",
+     "unlocked": false
+    },
+    {
+     "id": "warp_federer",
+     "name": "Basel Lawn Club Gate",
+     "x": 29,
+     "y": 13,
+     "zone": "federer",
+     "unlocked": false
+    },
+    {
+     "id": "warp_serena",
+     "name": "Compton Courts Gate",
+     "x": 43,
+     "y": 12,
+     "zone": "serena",
+     "unlocked": false
+    },
+    {
+     "id": "warp_tiger",
+     "name": "Cypress Links Gate",
+     "x": 43,
+     "y": 21,
+     "zone": "tiger",
+     "unlocked": false
+    },
+    {
+     "id": "warp_sachin",
+     "name": "Bandra Nets Gate",
+     "x": 43,
+     "y": 32,
+     "zone": "sachin",
+     "unlocked": false
+    },
+    {
+     "id": "warp_goku",
+     "name": "Mount Paozu Gate",
+     "x": 29,
+     "y": 30,
+     "zone": "goku",
+     "unlocked": false
+    },
+    {
+     "id": "warp_bruce",
+     "name": "Kowloon Dojo Gate",
+     "x": 17,
+     "y": 32,
+     "zone": "bruce",
+     "unlocked": false
+    },
+    {
+     "id": "warp_ali",
+     "name": "Louisville Gym Gate",
+     "x": 17,
+     "y": 21,
+     "zone": "ali",
+     "unlocked": false
+    }
+   ],
+   "doors": [
+    {
+     "id": "door_arena",
+     "x": 30,
+     "y": 16,
+     "to_map": "arena",
+     "to_x": 13,
+     "to_y": 15,
+     "requires": "pillars_8",
+     "hidden": false,
+     "label": "Tournament Gate",
+     "locked_text": "Sealed. Light all eight pillars first."
+    },
+    {
+     "id": "stairs_vault",
+     "x": 32,
+     "y": 23,
+     "to_map": "vault",
+     "to_x": 10,
+     "to_y": 11,
+     "requires": "mementos_8",
+     "hidden": true,
+     "label": "Old stairway",
+     "locked_text": ""
+    },
+    {
+     "id": "stairs_underring",
+     "x": 4,
+     "y": 23,
+     "to_map": "underring",
+     "to_x": 2,
+     "to_y": 3,
+     "requires": null,
+     "hidden": false,
+     "label": "Cellar stairs"
+    },
+    {
+     "id": "door_moonpool",
+     "x": 29,
+     "y": 38,
+     "to_map": "moonpool",
+     "to_x": 8,
+     "to_y": 9,
+     "requires": null,
+     "hidden": true,
+     "label": "Behind the waterfall"
+    },
+    {
+     "id": "portal_messi",
+     "x": 7,
+     "y": 11,
+     "to_map": "story",
+     "to_story": "messi",
+     "requires": "met_messi",
+     "hidden": false,
+     "label": "Messi's life"
+    },
+    {
+     "id": "portal_federer",
+     "x": 29,
+     "y": 5,
+     "to_map": "story",
+     "to_story": "federer",
+     "requires": "met_federer",
+     "hidden": false,
+     "label": "Federer's life"
+    },
+    {
+     "id": "portal_serena",
+     "x": 46,
+     "y": 6,
+     "to_map": "story",
+     "to_story": "serena",
+     "requires": "met_serena",
+     "hidden": false,
+     "label": "Serena's life"
+    },
+    {
+     "id": "portal_tiger",
+     "x": 53,
+     "y": 20,
+     "to_map": "story",
+     "to_story": "tiger",
+     "requires": "met_tiger",
+     "hidden": false,
+     "label": "Tiger's life"
+    },
+    {
+     "id": "portal_sachin",
+     "x": 50,
+     "y": 36,
+     "to_map": "story",
+     "to_story": "sachin",
+     "requires": "met_sachin",
+     "hidden": false,
+     "label": "Sachin's life"
+    },
+    {
+     "id": "portal_goku",
+     "x": 34,
+     "y": 32,
+     "to_map": "story",
+     "to_story": "goku",
+     "requires": "met_goku",
+     "hidden": false,
+     "label": "Goku's life"
+    },
+    {
+     "id": "portal_bruce",
+     "x": 6,
+     "y": 34,
+     "to_map": "story",
+     "to_story": "bruce",
+     "requires": "met_bruce",
+     "hidden": false,
+     "label": "Bruce's life"
+    },
+    {
+     "id": "portal_ali",
+     "x": 13,
+     "y": 20,
+     "to_map": "story",
+     "to_story": "ali",
+     "requires": "met_ali",
+     "hidden": false,
+     "label": "Ali's life"
+    }
+   ],
+   "secrets": [
+    {
+     "id": "hm_messi",
+     "goat": "messi",
+     "name": "The Napkin",
+     "giver": "keeper_messi",
+     "hint1": "Rexach signed the boy on a napkin in a little restaurant - the family kept everything from those days. Check the old cafe's drawer marked miscellaneous, Rosario Quarter.",
+     "hint2": "Some fool filed a treasure under 'miscellaneous.' The cafe's fenced yard, Rosario Quarter.",
+     "map": "hub",
+     "sparkle": [
+      15,
+      8
+     ],
+     "memento": "The Napkin",
+     "memory": "Barcelona, 2000: a restaurant table, a paper napkin, and a signature that changed football."
+    },
+    {
+     "id": "hm_federer",
+     "goat": "federer",
+     "name": "The Ball-Boy Medal",
+     "giver": "keeper_federer",
+     "hint1": "1993, Swiss Indoors - a ball boy got a medal from Michael Stich himself. Roger never forgot. It is in the clubhouse trophy cabinet, behind the loose panel.",
+     "hint2": "A champion's first medal was not won - it was given. Clubhouse porch, Basel Lawn Club.",
+     "map": "hub",
+     "sparkle": [
+      30,
+      6
+     ],
+     "memento": "The Ball-Boy Medal",
+     "memory": "Basel, 1993: a boy in whites catches a champion's medal - and a promise."
+    },
+    {
+     "id": "hm_serena",
+     "goat": "serena",
+     "name": "Page One of the Plan",
+     "giver": "keeper_serena",
+     "hint1": "Richard wrote it all down - seventy-eight pages, starting at page one. Sachin keeps a copy in the Hall Library's sports section, inside a tennis manual.",
+     "hint2": "A father's handwriting. Seventy-eight pages. Start at one - the library shelves by the plaza.",
+     "map": "hub",
+     "sparkle": [
+      34,
+      24
+     ],
+     "memento": "Page One of the Plan",
+     "memory": "Compton: a plan in a binder, cracked courts, and two sisters who believed it."
+    },
+    {
+     "id": "hm_tiger",
+     "goat": "tiger",
+     "name": "Earl's Old Glove",
+     "giver": "keeper_tiger",
+     "hint1": "Earl's old glove - he left it on the driving-range bench at the Navy tee, before dawn rounds. Tiger never moved it.",
+     "hint2": "A glove worn soft by a father's hands - old Navy tee, Cypress Links.",
+     "map": "hub",
+     "sparkle": [
+      45,
+      19
+     ],
+     "memento": "Earl's Old Glove",
+     "memory": "Cypress, before dawn: a father, a son, and a glove that smelled like cut grass."
+    },
+    {
+     "id": "hm_sachin",
+     "goat": "sachin",
+     "name": "The One-Rupee Coin",
+     "giver": "keeper_sachin",
+     "hint1": "Achrekar sir put a one-rupee coin on the off-stump - bowlers who got the boy kept it. The last coin was never claimed. It is still at the nets.",
+     "hint2": "A coin worth one rupee, worth a billion memories - middle stump, Bandra nets.",
+     "map": "hub",
+     "sparkle": [
+      48,
+      32
+     ],
+     "memento": "The One-Rupee Coin",
+     "memory": "Shivaji Park, 7 AM: a coin on the stump, and a boy who would not get out."
+    },
+    {
+     "id": "hm_bruce",
+     "goat": "bruce",
+     "name": "The Cha-Cha Medal",
+     "giver": "keeper_bruce",
+     "hint1": "Before Jeet Kune Do, there was the cha-cha - Hong Kong champion, 1958. Sifu kept the medal in the dojo storage shed, behind the curtain. Said dancing taught him footwork.",
+     "hint2": "A dancer's medal in a fighter's dojo - check the storage shed, Kowloon.",
+     "map": "hub",
+     "sparkle": [
+      12,
+      34
+     ],
+     "memento": "The Cha-Cha Medal",
+     "memory": "Hong Kong, 1958: a trophy for dancing - footwork before fists."
+    }
+   ],
+   "pillars": [
+    {
+     "goat": "federer",
+     "x": 30,
+     "y": 18,
+     "state": "dim"
+    },
+    {
+     "goat": "serena",
+     "x": 33,
+     "y": 19,
+     "state": "dim"
+    },
+    {
+     "goat": "tiger",
+     "x": 34,
+     "y": 22,
+     "state": "dim"
+    },
+    {
+     "goat": "sachin",
+     "x": 33,
+     "y": 25,
+     "state": "dim"
+    },
+    {
+     "goat": "goku",
+     "x": 30,
+     "y": 26,
+     "state": "dim"
+    },
+    {
+     "goat": "bruce",
+     "x": 27,
+     "y": 25,
+     "state": "dim"
+    },
+    {
+     "goat": "ali",
+     "x": 26,
+     "y": 22,
+     "state": "dim"
+    },
+    {
+     "goat": "messi",
+     "x": 27,
+     "y": 19,
+     "state": "dim"
+    }
+   ],
+   "spawn": [
+    29,
+    31
+   ]
+  },
+  "underring": {
+   "name": "The Under-Ring Tunnels",
+   "w": 18,
+   "h": 12,
+   "tiles": [
+    "BBBBBBBBBBBBBBBBBB",
+    "B....BBBBBBBB....B",
+    "B.^..BBBBBBBB....B",
+    "B....BBBBBBBB....B",
+    "B............BBBBB",
+    "B..............BBB",
+    "B.............BBBB",
+    "B....BBBBBBBB....B",
+    "B....BBBWWBBB..N.B",
+    "B....BBBWWBBB..*.B",
+    "B....BBBBBBBB....B",
+    "BBBBBBBBBBBBBBBBBB"
+   ],
+   "doors": [
+    {
+     "id": "stairs_hub",
+     "x": 2,
+     "y": 2,
+     "to_map": "hub",
+     "to_x": 4,
+     "to_y": 23,
+     "requires": null,
+     "hidden": false,
+     "label": "Stairs up"
+    }
+   ],
+   "secrets": [
+    {
+     "id": "hm_ali",
+     "goat": "ali",
+     "name": "The Bicycle Bell",
+     "giver": "keeper_ali",
+     "hint1": "Before the gloves, there was a red-and-white Schwinn. Stolen, October '54. The champ never forgot the sound of that bell - the lost-and-found crate went down the gym's cellar stairs years ago.",
+     "hint2": "The gym's cellar stairs go down further than the gym. Listen for the bell.",
+     "map": "underring",
+     "sparkle": [
+      15,
+      9
+     ],
+     "memento": "The Bicycle Bell",
+     "memory": "Louisville, 1954: a stolen bicycle, a furious boy, and an officer who said 'learn to box first.'"
+    }
+   ],
+   "spawn": [
+    2,
+    3
+   ]
+  },
+  "moonpool": {
+   "name": "Moon Pool Cavern",
+   "w": 16,
+   "h": 12,
+   "tiles": [
+    "MMMMMMMMMMMMMMMM",
+    "M..............M",
+    "M.R.....X....R.M",
+    "M.......*......M",
+    "M....WWW.WW....M",
+    "M....WWW.WW....M",
+    "M....~~W.WW....M",
+    "M....WWW.WW....M",
+    "M......+++.....M",
+    "M.R..........R.M",
+    "M.......^......M",
+    "MMMMMMMMMMMMMMMM"
+   ],
+   "doors": [
+    {
+     "id": "exit_falls",
+     "x": 8,
+     "y": 10,
+     "to_map": "hub",
+     "to_x": 28,
+     "to_y": 38,
+     "requires": null,
+     "hidden": false,
+     "label": "Back through the falls"
+    }
+   ],
+   "secrets": [
+    {
+     "id": "hm_goku",
+     "goat": "goku",
+     "name": "The Split Staff",
+     "giver": "keeper_goku",
+     "hint1": "Gramps' old staff - Goku broke it training as a boy and kept it anyway. It is at the mountain shrine, behind the falling water.",
+     "hint2": "Behind the waterfall on Mount Paozu - the water hides a door.",
+     "map": "moonpool",
+     "sparkle": [
+      8,
+      3
+     ],
+     "memento": "The Split Staff",
+     "memory": "Mount Paozu: a lonely house, a grandpa's keepsake, and a boy with a pure heart."
+    }
+   ],
+   "spawn": [
+    8,
+    9
+   ],
+   "pois": [
+    {
+     "id": "paozu_shrine",
+     "name": "The Paozu shrine",
+     "x": 8,
+     "y": 2,
+     "type": "landmark",
+     "text": "The Paozu shrine - Gramps' staff rests here."
+    }
+   ]
+  },
+  "vault": {
+   "name": "The Archivist's Vault",
+   "w": 20,
+   "h": 14,
+   "tiles": [
+    "BBBBBBBBBBBBBBBBBBBB",
+    "BLppppppppppppppppLB",
+    "BppppppppppppppppppB",
+    "BppppppppppppppppppB",
+    "BpppppppppfppppppppB",
+    "BpppppppppOppppppppB",
+    "BppppppppppppppppppB",
+    "BppppppppppppppppppB",
+    "BppppppppppppppppppB",
+    "BppNpNpNpNpNpNpNpNpB",
+    "BppppppppppppppppppB",
+    "BppppppppppppppppppB",
+    "BLpppppppp^pppppppLB",
+    "BBBBBBBBBBBBBBBBBBBB"
+   ],
+   "doors": [
+    {
+     "id": "stairs_plaza",
+     "x": 10,
+     "y": 12,
+     "to_map": "hub",
+     "to_x": 32,
+     "to_y": 22,
+     "requires": null,
+     "hidden": false,
+     "label": "Stairs up"
+    }
+   ],
+   "pois": [
+    {
+     "id": "ninth_pillar",
+     "name": "The Ninth Pillar",
+     "x": 10,
+     "y": 5,
+     "type": "pillar",
+     "text": "For the visitor who lived them all."
+    }
+   ],
+   "spawn": [
+    10,
+    11
+   ]
+  },
+  "arena": {
+   "name": "Tournament of Legends Arena",
+   "w": 26,
+   "h": 18,
+   "tiles": [
+    "TTTTTTTTTTTTTTTTTTTTTTTTTT",
+    "TppppppppppppppppppppppppT",
+    "TppppppppppppXpppppppppppT",
+    "TppLppXppppppppppppXppLppT",
+    "TppppppppppffffppppppppppT",
+    "TppppppppppffffppppppppppT",
+    "TppppppppppppppppppppppppT",
+    "TpppppppppKKKKKKpppppppppT",
+    "TpppXpppppKKKKKKpppppXpppT",
+    "TpppppppppKKKKKKpppppppppT",
+    "TpppppppppKKKKKKpppppppppT",
+    "TppppppppppppppppppppppppT",
+    "TppppppppppppppppppppppppT",
+    "TpppppXppppppppppppXpppppT",
+    "TppLpppppppppXppppppppLppT",
+    "TppppppppppppppppppppppppT",
+    "TppppppppppppDpppppppppppT",
+    "TTTTTTTTTTTTTTTTTTTTTTTTTT"
+   ],
+   "doors": [
+    {
+     "id": "gate_hub",
+     "x": 13,
+     "y": 16,
+     "to_map": "hub",
+     "to_x": 30,
+     "to_y": 17,
+     "requires": null,
+     "hidden": false,
+     "label": "Back to the plaza"
+    }
+   ],
+   "stations": [
+    {
+     "goat": "messi",
+     "x": 6,
+     "y": 3,
+     "name": "Lionel Messi's trial"
+    },
+    {
+     "goat": "sachin",
+     "x": 13,
+     "y": 2,
+     "name": "Sachin Tendulkar's trial"
+    },
+    {
+     "goat": "ali",
+     "x": 19,
+     "y": 3,
+     "name": "Muhammad Ali's trial"
+    },
+    {
+     "goat": "bruce",
+     "x": 21,
+     "y": 8,
+     "name": "Bruce Lee's trial"
+    },
+    {
+     "goat": "federer",
+     "x": 19,
+     "y": 13,
+     "name": "Roger Federer's trial"
+    },
+    {
+     "goat": "tiger",
+     "x": 13,
+     "y": 14,
+     "name": "Tiger Woods's trial"
+    },
+    {
+     "goat": "serena",
+     "x": 6,
+     "y": 13,
+     "name": "Serena Williams's trial"
+    },
+    {
+     "goat": "goku",
+     "x": 4,
+     "y": 8,
+     "name": "Goku's trial"
+    }
+   ],
+   "spawn": [
+    13,
+    15
+   ]
+  }
+ },
+ "hidden_missions": [
+  {
+   "id": "hm_messi",
+   "goat": "messi",
+   "name": "The Napkin",
+   "giver": "keeper_messi",
+   "hint1": "Rexach signed the boy on a napkin in a little restaurant - the family kept everything from those days. Check the old cafe's drawer marked miscellaneous, Rosario Quarter.",
+   "hint2": "Some fool filed a treasure under 'miscellaneous.' The cafe's fenced yard, Rosario Quarter.",
+   "map": "hub",
+   "sparkle": [
+    15,
+    8
+   ],
+   "memento": "The Napkin",
+   "memory": "Barcelona, 2000: a restaurant table, a paper napkin, and a signature that changed football."
+  },
+  {
+   "id": "hm_federer",
+   "goat": "federer",
+   "name": "The Ball-Boy Medal",
+   "giver": "keeper_federer",
+   "hint1": "1993, Swiss Indoors - a ball boy got a medal from Michael Stich himself. Roger never forgot. It is in the clubhouse trophy cabinet, behind the loose panel.",
+   "hint2": "A champion's first medal was not won - it was given. Clubhouse porch, Basel Lawn Club.",
+   "map": "hub",
+   "sparkle": [
+    30,
+    6
+   ],
+   "memento": "The Ball-Boy Medal",
+   "memory": "Basel, 1993: a boy in whites catches a champion's medal - and a promise."
+  },
+  {
+   "id": "hm_serena",
+   "goat": "serena",
+   "name": "Page One of the Plan",
+   "giver": "keeper_serena",
+   "hint1": "Richard wrote it all down - seventy-eight pages, starting at page one. Sachin keeps a copy in the Hall Library's sports section, inside a tennis manual.",
+   "hint2": "A father's handwriting. Seventy-eight pages. Start at one - the library shelves by the plaza.",
+   "map": "hub",
+   "sparkle": [
+    34,
+    24
+   ],
+   "memento": "Page One of the Plan",
+   "memory": "Compton: a plan in a binder, cracked courts, and two sisters who believed it."
+  },
+  {
+   "id": "hm_tiger",
+   "goat": "tiger",
+   "name": "Earl's Old Glove",
+   "giver": "keeper_tiger",
+   "hint1": "Earl's old glove - he left it on the driving-range bench at the Navy tee, before dawn rounds. Tiger never moved it.",
+   "hint2": "A glove worn soft by a father's hands - old Navy tee, Cypress Links.",
+   "map": "hub",
+   "sparkle": [
+    45,
+    19
+   ],
+   "memento": "Earl's Old Glove",
+   "memory": "Cypress, before dawn: a father, a son, and a glove that smelled like cut grass."
+  },
+  {
+   "id": "hm_sachin",
+   "goat": "sachin",
+   "name": "The One-Rupee Coin",
+   "giver": "keeper_sachin",
+   "hint1": "Achrekar sir put a one-rupee coin on the off-stump - bowlers who got the boy kept it. The last coin was never claimed. It is still at the nets.",
+   "hint2": "A coin worth one rupee, worth a billion memories - middle stump, Bandra nets.",
+   "map": "hub",
+   "sparkle": [
+    48,
+    32
+   ],
+   "memento": "The One-Rupee Coin",
+   "memory": "Shivaji Park, 7 AM: a coin on the stump, and a boy who would not get out."
+  },
+  {
+   "id": "hm_bruce",
+   "goat": "bruce",
+   "name": "The Cha-Cha Medal",
+   "giver": "keeper_bruce",
+   "hint1": "Before Jeet Kune Do, there was the cha-cha - Hong Kong champion, 1958. Sifu kept the medal in the dojo storage shed, behind the curtain. Said dancing taught him footwork.",
+   "hint2": "A dancer's medal in a fighter's dojo - check the storage shed, Kowloon.",
+   "map": "hub",
+   "sparkle": [
+    12,
+    34
+   ],
+   "memento": "The Cha-Cha Medal",
+   "memory": "Hong Kong, 1958: a trophy for dancing - footwork before fists."
+  },
+  {
+   "id": "hm_ali",
+   "goat": "ali",
+   "name": "The Bicycle Bell",
+   "giver": "keeper_ali",
+   "hint1": "Before the gloves, there was a red-and-white Schwinn. Stolen, October '54. The champ never forgot the sound of that bell - the lost-and-found crate went down the gym's cellar stairs years ago.",
+   "hint2": "The gym's cellar stairs go down further than the gym. Listen for the bell.",
+   "map": "underring",
+   "sparkle": [
+    15,
+    9
+   ],
+   "memento": "The Bicycle Bell",
+   "memory": "Louisville, 1954: a stolen bicycle, a furious boy, and an officer who said 'learn to box first.'"
+  },
+  {
+   "id": "hm_goku",
+   "goat": "goku",
+   "name": "The Split Staff",
+   "giver": "keeper_goku",
+   "hint1": "Gramps' old staff - Goku broke it training as a boy and kept it anyway. It is at the mountain shrine, behind the falling water.",
+   "hint2": "Behind the waterfall on Mount Paozu - the water hides a door.",
+   "map": "moonpool",
+   "sparkle": [
+    8,
+    3
+   ],
+   "memento": "The Split Staff",
+   "memory": "Mount Paozu: a lonely house, a grandpa's keepsake, and a boy with a pure heart."
+  }
+ ],
+ "hub_evolution": [
+  {
+   "goat": "messi",
+   "changes": [
+    "String lights appear across Rosario Quarter (lamp tiles lit at dusk).",
+    "Two kid NPCs spawn in the plaza kicking a ball.",
+    "Cafe El Rincon gains a 'napkin framed on the wall' POI."
+   ]
+  },
+  {
+   "goat": "sachin",
+   "changes": [
+    "Bunting strung across Bandra Nets; 'Sachin, Sachin' chant ambience near the oval.",
+    "Firework sparkles over the cricket oval at dusk.",
+    "Mural wall plaque text updates: '...and the wait was worth it.'"
+   ]
+  },
+  {
+   "goat": "ali",
+   "changes": [
+    "Olympic torch plinth lights with an eternal flame VFX.",
+    "Gym kids chant 'Ali, bomaye!' on approach.",
+    "Desert training ground gains a second ring (sparring)."
+   ]
+  },
+  {
+   "goat": "bruce",
+   "changes": [
+    "Dojo lanterns lit along the Hong Kong street.",
+    "Be Water pond gains koi sparkles; plaque glows.",
+    "Training dummies replaced by a live sparring partner NPC."
+   ]
+  },
+  {
+   "goat": "federer",
+   "changes": [
+    "Clubhouse flower boxes bloom (flower tiles added).",
+    "Ball kids rally on the grass courts (ambient animation).",
+    "Trophy cabinet plaque: '20. The gentleman's game, perfected.'"
+   ]
+  },
+  {
+   "goat": "tiger",
+   "changes": [
+    "Sunday-red flag on the 18th green; flagstick glows.",
+    "Pro shop hut opens: vendor NPC sells palette-swap costumes.",
+    "Fist-pump statue POI added near the green."
+   ]
+  },
+  {
+   "goat": "serena",
+   "changes": [
+    "Court three's chalk lines repainted in gold.",
+    "Yetunde's garden blooms; new bench dialogue.",
+    "Catsuit tribute banner at the Macci academy sign."
+   ]
+  },
+  {
+   "goat": "goku",
+   "changes": [
+    "Waterfall glows at dusk; pure-heart stone pulses.",
+    "A drifting cloud (Nimbus homage, original art) circles the peak.",
+    "Training hut gains a weighted-gear rack POI."
+   ]
+  }
+ ],
+ "gating": {
+  "flags": [
+   "met_<goat> (talk to GOAT once)",
+   "life_<goat>_complete",
+   "visited_<zone> (first step into district rect)",
+   "pillars_lit (0-8)",
+   "mementos (0-8)"
+  ],
+  "rules": [
+   "All 8 districts walkable from game start - exploration is never gated.",
+   "Life portals require met_<goat> only (one conversation).",
+   "Story NEVER gates behind medals or golds (per brief).",
+   "District warp unlocks on visited_<zone> (Pokemon Fly-style).",
+   "Tournament Gate requires pillars_lit == 8.",
+   "Vault stairs (hidden) require mementos == 8.",
+   "Secret-area exits are always open; retry is always free."
+  ]
+ },
+ "side_missions": [
+  {
+   "id": "S1",
+   "goat": "messi",
+   "name": "The Machine of '87",
+   "giver": "kid_messi",
+   "loc": [
+    29,
+    22
+   ],
+   "unlock": "met_messi",
+   "setup": "A hub kid found an old youth-league ball. Keep-away in the plaza."
+  },
+  {
+   "id": "S2",
+   "goat": "messi",
+   "name": "Free-Kick at Dusk",
+   "giver": "keeper_messi",
+   "loc": [
+    28,
+    21
+   ],
+   "unlock": "met_messi",
+   "setup": "Bend one past the fountain keeper before the lights come on."
+  },
+  {
+   "id": "S3",
+   "goat": "sachin",
+   "name": "The Coin Challenge",
+   "giver": "kid_sachin1",
+   "loc": [
+    48,
+    33
+   ],
+   "unlock": "met_sachin",
+   "setup": "Achrekar's game, hub rules: a coin on the stump, the kids bowl at you."
+  },
+  {
+   "id": "S4",
+   "goat": "sachin",
+   "name": "Ten Straight Drives",
+   "giver": "keeper_sachin",
+   "loc": [
+    48,
+    34
+   ],
+   "unlock": "met_sachin",
+   "setup": "Time ten perfect straight drives at the nets."
+  },
+  {
+   "id": "S5",
+   "goat": "ali",
+   "name": "Rhymes for the Weigh-In",
+   "giver": "keeper_ali",
+   "loc": [
+    12,
+    21
+   ],
+   "unlock": "met_ali",
+   "setup": "Help Ali write a prediction rhyme - pick the punchiest line of three."
+  },
+  {
+   "id": "S6",
+   "goat": "ali",
+   "name": "Shadowbox with the Champ",
+   "giver": "sparkid_ali1",
+   "loc": [
+    13,
+    21
+   ],
+   "unlock": "met_ali",
+   "setup": "Mirror the Ali Shuffle for sixty seconds without tripping."
+  },
+  {
+   "id": "S7",
+   "goat": "bruce",
+   "name": "The Cha-Cha Step",
+   "giver": "goat_bruce",
+   "loc": [
+    7,
+    35
+   ],
+   "unlock": "met_bruce",
+   "setup": "Rhythm minigame - he won a title in this, do not embarrass yourself."
+  },
+  {
+   "id": "S8",
+   "goat": "bruce",
+   "name": "Board Breaking",
+   "giver": "student_bruce",
+   "loc": [
+    6,
+    36
+   ],
+   "unlock": "met_bruce",
+   "setup": "Focus meter, one strike, no hesitation."
+  },
+  {
+   "id": "S9",
+   "goat": "federer",
+   "name": "Ball-Boy Shift",
+   "giver": "ballkid_fed",
+   "loc": [
+    29,
+    10
+   ],
+   "unlock": "met_federer",
+   "setup": "Fetch drills at the hub courts - be where the ball is before it is."
+  },
+  {
+   "id": "S10",
+   "goat": "federer",
+   "name": "The Tweener",
+   "giver": "keeper_federer",
+   "loc": [
+    26,
+    7
+   ],
+   "unlock": "met_federer",
+   "setup": "Land the between-the-legs trick shot three times."
+  },
+  {
+   "id": "S11",
+   "goat": "tiger",
+   "name": "Sunday Red",
+   "giver": "keeper_tiger",
+   "loc": [
+    48,
+    22
+   ],
+   "unlock": "met_tiger",
+   "setup": "His lucky red shirt has gone missing before the dawn round. Hub fetch quest."
+  },
+  {
+   "id": "S12",
+   "goat": "tiger",
+   "name": "The Putt That Wouldn't Drop",
+   "giver": "fan_tiger",
+   "loc": [
+    53,
+    20
+   ],
+   "unlock": "met_tiger",
+   "setup": "Ten straight putts, wind rising."
+  },
+  {
+   "id": "S13",
+   "goat": "serena",
+   "name": "The Beads",
+   "giver": "kid_serena1",
+   "loc": [
+    45,
+    6
+   ],
+   "unlock": "met_serena",
+   "setup": "A kid wants cornrow beads like the '99 final. Find the bead box."
+  },
+  {
+   "id": "S14",
+   "goat": "serena",
+   "name": "Second Serve",
+   "giver": "keeper_serena",
+   "loc": [
+    50,
+    10
+   ],
+   "unlock": "met_serena",
+   "setup": "Ace streak - the most feared serve in history, your hands."
+  },
+  {
+   "id": "S15",
+   "goat": "goku",
+   "name": "The Endless Appetite",
+   "giver": "villager_goku",
+   "loc": [
+    30,
+    32
+   ],
+   "unlock": "met_goku",
+   "setup": "Eating contest at the food stall. The reigning champ is Goku. Good luck."
+  },
+  {
+   "id": "S16",
+   "goat": "goku",
+   "name": "Catch the Old Master",
+   "giver": "sparkid_goku",
+   "loc": [
+    31,
+    33
+   ],
+   "unlock": "met_goku",
+   "setup": "Chase minigame - tag Goku before he finishes his noodles."
+  }
+ ],
+ "chapter_backdrops": {
+  "messi": [
+   {
+    "ch": 1,
+    "era": "1987–2000",
+    "scene": "Rosario barrio, Grandoli pitch",
+    "palette": "warm ochre, dusty gold",
+    "motif": "chalk goalposts"
+   },
+   {
+    "ch": 2,
+    "era": "2000–2003",
+    "scene": "La Masia dormitory and training pitch",
+    "palette": "cool morning blue",
+    "motif": "paper napkin on a table"
+   },
+   {
+    "ch": 3,
+    "era": "2003–2006",
+    "scene": "Camp Nou tunnel at night",
+    "palette": "floodlit green, deep shadow",
+    "motif": "number 30 shirt"
+   },
+   {
+    "ch": 4,
+    "era": "2007–2009",
+    "scene": "Copa del Rey pitch, rain",
+    "palette": "electric green, wet sheen",
+    "motif": "number 10, five beaten markers"
+   },
+   {
+    "ch": 5,
+    "era": "2010–2014",
+    "scene": "record-year stadium montage",
+    "palette": "golden floodlights",
+    "motif": "four Ballon d'Ors"
+   },
+   {
+    "ch": 6,
+    "era": "2014–2019",
+    "scene": "Maracanã tunnel, 2014 final",
+    "palette": "desaturated blue-grey",
+    "motif": "the trophy, walked past"
+   },
+   {
+    "ch": 7,
+    "era": "2019–2024",
+    "scene": "Lusail night, confetti",
+    "palette": "sky-blue and white",
+    "motif": "World Cup trophy"
+   }
+  ],
+  "sachin": [
+   {
+    "ch": 1,
+    "era": "1973–1988",
+    "scene": "Shivaji Park nets, monsoon",
+    "palette": "wet green-grey",
+    "motif": "one-rupee coin on the stump"
+   },
+   {
+    "ch": 2,
+    "era": "1989–1990",
+    "scene": "debut tour stadiums",
+    "palette": "harsh white sun",
+    "motif": "debut cap, bloodied shirt (tasteful)"
+   },
+   {
+    "ch": 3,
+    "era": "1991–1997",
+    "scene": "Perth, pace and bounce",
+    "palette": "dry yellow",
+    "motif": "the straight drive"
+   },
+   {
+    "ch": 4,
+    "era": "1998",
+    "scene": "Sharjah night, desert storm",
+    "palette": "amber haze",
+    "motif": "desert rose"
+   },
+   {
+    "ch": 5,
+    "era": "2000–2007",
+    "scene": "packed Indian stadiums",
+    "palette": "tricolor crowds",
+    "motif": "the carried bat"
+   },
+   {
+    "ch": 6,
+    "era": "2008–2012",
+    "scene": "Mirpur, the milestone",
+    "palette": "fireworks gold",
+    "motif": "raised bat: 100"
+   },
+   {
+    "ch": 7,
+    "era": "2011–2013",
+    "scene": "Wankhede, shoulder-high",
+    "palette": "champion blue",
+    "motif": "teammates' shoulders"
+   }
+  ],
+  "ali": [
+   {
+    "ch": 1,
+    "era": "1942–1954",
+    "scene": "Louisville street, dusk",
+    "palette": "red-white Schwinn colors",
+    "motif": "bicycle bell"
+   },
+   {
+    "ch": 2,
+    "era": "1954–1960",
+    "scene": "Columbia Gym interior",
+    "palette": "sweat-warm browns",
+    "motif": "speed bag"
+   },
+   {
+    "ch": 3,
+    "era": "1960–1967",
+    "scene": "Rome podium, title years",
+    "palette": "laurel gold",
+    "motif": "Olympic torch"
+   },
+   {
+    "ch": 4,
+    "era": "1967–1970",
+    "scene": "empty gym, campus lectures",
+    "palette": "muted grey",
+    "motif": "the absent title belt"
+   },
+   {
+    "ch": 5,
+    "era": "1970–1974",
+    "scene": "Kinshasa stadium, the Rumble",
+    "palette": "jungle green and gold",
+    "motif": "the ropes"
+   },
+   {
+    "ch": 6,
+    "era": "1975–1978",
+    "scene": "Araneta Coliseum, furnace heat",
+    "palette": "furnace orange",
+    "motif": "Thrilla banner"
+   },
+   {
+    "ch": 7,
+    "era": "1981–2016",
+    "scene": "Atlanta cauldron, night",
+    "palette": "flame gold",
+    "motif": "the torch, held high (respectful)"
+   }
+  ],
+  "bruce": [
+   {
+    "ch": 1,
+    "era": "1940–1958",
+    "scene": "Hong Kong rooftop and street",
+    "palette": "neon dusk",
+    "motif": "cha-cha trophy"
+   },
+   {
+    "ch": 2,
+    "era": "1959–1964",
+    "scene": "rainy Seattle school",
+    "palette": "slate blue",
+    "motif": "wooden dummy"
+   },
+   {
+    "ch": 3,
+    "era": "~1964",
+    "scene": "Oakland school, the challenge",
+    "palette": "stark white",
+    "motif": "the signed rules paper"
+   },
+   {
+    "ch": 4,
+    "era": "1964–1970",
+    "scene": "Green Hornet set",
+    "palette": "studio lights",
+    "motif": "Kato mask"
+   },
+   {
+    "ch": 5,
+    "era": "1971–1972",
+    "scene": "Hong Kong film set",
+    "palette": "jade green",
+    "motif": "nunchaku"
+   },
+   {
+    "ch": 6,
+    "era": "1973",
+    "scene": "Colosseum set, the final film",
+    "palette": "sandstone",
+    "motif": "yellow jumpsuit"
+   },
+   {
+    "ch": 7,
+    "era": "1973–present",
+    "scene": "statue at dusk",
+    "palette": "violet dusk",
+    "motif": "'Be Water' plaque"
+   }
+  ],
+  "federer": [
+   {
+    "ch": 1,
+    "era": "1981–1998",
+    "scene": "St. Jakobshalle, ball-boy days",
+    "palette": "indoor green",
+    "motif": "ball-boy medal"
+   },
+   {
+    "ch": 2,
+    "era": "1998–2002",
+    "scene": "tour courts, the temper",
+    "palette": "restless red",
+    "motif": "the temper jar"
+   },
+   {
+    "ch": 3,
+    "era": "2003–2004",
+    "scene": "Wimbledon Centre Court",
+    "palette": "pristine lawn green",
+    "motif": "the first trophy"
+   },
+   {
+    "ch": 4,
+    "era": "2005–2007",
+    "scene": "the grass season sweep",
+    "palette": "silk white",
+    "motif": "tweener silhouette"
+   },
+   {
+    "ch": 5,
+    "era": "2008–2010",
+    "scene": "Wimbledon 2008 final, fading light",
+    "palette": "twilight purple",
+    "motif": "9–7 in the fifth"
+   },
+   {
+    "ch": 6,
+    "era": "2011–2016",
+    "scene": "clay dust, the long road",
+    "palette": "terracotta",
+    "motif": "the larger racket head"
+   },
+   {
+    "ch": 7,
+    "era": "2017–2022",
+    "scene": "Melbourne night, 2017",
+    "palette": "electric blue",
+    "motif": "the twentieth trophy"
+   }
+  ],
+  "tiger": [
+   {
+    "ch": 1,
+    "era": "1975–1994",
+    "scene": "Cypress Navy course, dawn",
+    "palette": "mist gold",
+    "motif": "the tiny red shirt"
+   },
+   {
+    "ch": 2,
+    "era": "1996–1997",
+    "scene": "Augusta, 1997",
+    "palette": "azalea pink and green",
+    "motif": "the 12-stroke board"
+   },
+   {
+    "ch": 3,
+    "era": "1998–2005",
+    "scene": "the four-majors sweep",
+    "palette": "major gold",
+    "motif": "the Tiger Slam"
+   },
+   {
+    "ch": 4,
+    "era": "2006–2009",
+    "scene": "Torrey Pines playoff",
+    "palette": "sea blue",
+    "motif": "the one-legged swing"
+   },
+   {
+    "ch": 5,
+    "era": "2009–2016",
+    "scene": "empty fairway, rain (public-record level)",
+    "palette": "desaturated grey-green",
+    "motif": "the scorecard"
+   },
+   {
+    "ch": 6,
+    "era": "2017–2019",
+    "scene": "the comeback trail",
+    "palette": "dawn amber",
+    "motif": "sunrise"
+   },
+   {
+    "ch": 7,
+    "era": "2020–present",
+    "scene": "Sunday red",
+    "palette": "crimson",
+    "motif": "the red shirt on the line"
+   }
+  ],
+  "serena": [
+   {
+    "ch": 1,
+    "era": "1981–1995",
+    "scene": "Compton courts, the beads",
+    "palette": "sun-bleached asphalt",
+    "motif": "the 78-page binder"
+   },
+   {
+    "ch": 2,
+    "era": "1996–2001",
+    "scene": "the first finals",
+    "palette": "bright beads",
+    "motif": "the 1999 trophy"
+   },
+   {
+    "ch": 3,
+    "era": "2002–2003",
+    "scene": "four straight majors",
+    "palette": "champion gold",
+    "motif": "the Serena Slam"
+   },
+   {
+    "ch": 4,
+    "era": "2004–2006",
+    "scene": "quiet courts",
+    "palette": "muted mauve",
+    "motif": "the empty bench (respectful)"
+   },
+   {
+    "ch": 5,
+    "era": "2007–2011",
+    "scene": "Melbourne 2007, unseeded",
+    "palette": "underdog orange",
+    "motif": "the unseeded draw sheet"
+   },
+   {
+    "ch": 6,
+    "era": "2012–2017",
+    "scene": "the Golden Peak",
+    "palette": "Olympic gold",
+    "motif": "the catsuit banner"
+   },
+   {
+    "ch": 7,
+    "era": "2017–2022",
+    "scene": "evolution",
+    "palette": "warm rose",
+    "motif": "evolved, not retired"
+   }
+  ],
+  "goku": [
+   {
+    "ch": 1,
+    "era": "the early years",
+    "scene": "Paozu hut, the waterfall",
+    "palette": "mountain mist",
+    "motif": "the split staff"
+   },
+   {
+    "ch": 2,
+    "era": "the first tournament",
+    "scene": "Stone City arena",
+    "palette": "festival lanterns",
+    "motif": "the tournament banner"
+   },
+   {
+    "ch": 3,
+    "era": "the rival",
+    "scene": "the rival dojo",
+    "palette": "iron grey",
+    "motif": "the rival's headband"
+   },
+   {
+    "ch": 4,
+    "era": "mercy",
+    "scene": "the battlefield, the spared foe",
+    "palette": "dawn white",
+    "motif": "the open hand"
+   },
+   {
+    "ch": 5,
+    "era": "the burning fields",
+    "scene": "scorched farmland",
+    "palette": "ember orange",
+    "motif": "the saved village bell"
+   },
+   {
+    "ch": 6,
+    "era": "the empty throne",
+    "scene": "the summit, the offered crown",
+    "palette": "cold blue",
+    "motif": "the refused crown"
+   },
+   {
+    "ch": 7,
+    "era": "the teacher",
+    "scene": "the dojo of students",
+    "palette": "spring green",
+    "motif": "wooden training staffs"
+   }
+  ]
+ }
+}
